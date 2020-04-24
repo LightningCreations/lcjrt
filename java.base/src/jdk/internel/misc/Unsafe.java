@@ -1,5 +1,8 @@
 package jdk.internel.misc;
 
+import github.lightningcreations.lccc.markers.DeniedFeature;
+
+@DeniedFeature(value="unsafe_api",enable=true)
 public abstract class Unsafe {
 
 	private Unsafe() {
@@ -19,6 +22,7 @@ public abstract class Unsafe {
 	}
 	
 	
+	public abstract Object allocateInstance(Class<?> cl);
 	
 	
 	
