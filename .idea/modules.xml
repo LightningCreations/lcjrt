@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java.base.iml" filepath="$PROJECT_DIR$/.idea/modules/java.base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/lcjrt.iml" filepath="$PROJECT_DIR$/.idea/lcjrt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java.base/lcjrt.java.base.iml" filepath="$PROJECT_DIR$/.idea/modules/java.base/lcjrt.java.base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java.base/lcjrt.java.base.main.iml" filepath="$PROJECT_DIR$/.idea/modules/java.base/lcjrt.java.base.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/java.base/lcjrt.java.base.test.iml" filepath="$PROJECT_DIR$/.idea/modules/java.base/lcjrt.java.base.test.iml" />
+    </modules>
+  </component>
+</project>

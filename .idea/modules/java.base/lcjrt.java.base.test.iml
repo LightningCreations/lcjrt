@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":java.base:test" external.linked.project.path="$MODULE_DIR$/../../../java.base" external.root.project.path="$MODULE_DIR$/../../.." external.system.id="GRADLE" external.system.module.group="lcjrt" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output-test url="file://$MODULE_DIR$/../../../java.base/build/classes/java/test" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../java.base/src/test">
+      <sourceFolder url="file://$MODULE_DIR$/../../../java.base/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../java.base/src/test/resources" type="java-test-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="lcjrt.java.base.main" />
+  </component>
+  <component name="TestModuleProperties" production-module="lcjrt.java.base.main" />
+</module>

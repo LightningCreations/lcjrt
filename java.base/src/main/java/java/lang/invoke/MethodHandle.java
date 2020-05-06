@@ -7,6 +7,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+@SuppressWarnings("FieldCanBeLocal")
 public abstract class MethodHandle {
 	private final MethodType type;
 	private final Class<?> target;
@@ -24,8 +25,6 @@ public abstract class MethodHandle {
 		abstract boolean __is_valid();
 	}
 
-
-
 	static native ResolvedObject __link_virtual(Class<?> target,String linkTarget,MethodType type);
 	static native ResolvedObject __link_static(Class<?> target,String linkTarget,MethodType type);
 	static native ResolvedObject __link_special(Class<?> target,String linkTarget,MethodType type);
@@ -36,7 +35,7 @@ public abstract class MethodHandle {
 
 	static native ResolvedObject __bind(ResolvedObject linked,Object obj);
 
-
+    
 	
 	
 	MethodHandle(MethodType type,Class<?> target,String linkTarget) {
