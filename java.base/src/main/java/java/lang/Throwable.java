@@ -1,6 +1,6 @@
 package java.lang;
 
-import jdk.internel.invoke.Stable;
+import jdk.internal.invoke.Stable;
 
 public class Throwable {
 	private String message;

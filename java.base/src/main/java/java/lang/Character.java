@@ -13,6 +13,7 @@
     @Stable
     private static final Character[] asciiCache = new Character[256];
     
+    @SuppressWarnings("UnnecessaryBoxing")
     public Character valueOf(char value){
         if(value<256){
             if(asciiCache[value]==null)
