@@ -2,15 +2,15 @@ package java.lang.ref;
 
 public abstract class Reference<T> {
 	private @PotentiallyUnreachable T referent;
-	private final @PotentiallyUnreachable Object enqueueKey;
+	private final @PotentiallyUnreachable EnqueKey<T> enqueueKey;
 	Reference(@PotentiallyUnreachable T obj,ReferenceQueue<? extends T> queue) {
 		this.enqueueKey = queue==null?null:subscribe(obj,queue);
 		this.referent = obj;
 	}
 	
-	private static native @PotentiallyUnreachable Object subscribe(@PotentiallyUnreachable Object referent,ReferenceQueue<?> queue);
-	private static native boolean enqueued(@PotentiallyUnreachable Object obj);
-	private static native boolean enque0(@PotentiallyUnreachable Object o);
+	private static native <T> @PotentiallyUnreachable EnqueKey<T> subscribe(@PotentiallyUnreachable T referent,ReferenceQueue<? extends T> queue);
+	private static native <T> boolean enqueued(@PotentiallyUnreachable EnqueKey<T> obj);
+	private static native <T> boolean enque0(@PotentiallyUnreachable EnqueKey<T> o);
 	
 	/**
 	 * Ensures that, until the call to reachabilityFence, obj is not reclaimed by the garbage collector. 
@@ -21,11 +21,9 @@ public abstract class Reference<T> {
 	/**
 	 * Converts the given strongly reachable Object into a {@literal @}PotentiallyReachable object with week semantics.
 	 * At any given time, the reference may either exist, or not exist. 
-	 * If it does not exist, then a call to {@link #strong(Object)} will return null. 
-	 * @param o
-	 * @return
+	 * If it does not exist, then a call to {@link #strong(Object)} will return null.
 	 */
-	static native @PotentiallyUnreachable Object week(Object o);
+	static native <T> @PotentiallyUnreachable T week(T o);
 	/**
 	 * Converts the given {@literal @}PotentiallyUnreachable object into a strongly reachable object. 
 	 * If o has been collected, then returns null. It is then the responsibility the caller to adjust its reference to the referent as such.
@@ -35,7 +33,7 @@ public abstract class Reference<T> {
 	 * Otherwise, the result is unspecified. In particular, if the garbage collector is not aware of the potentially reachable object o, the behavior is undefined. 
 	 * This method synchronizes with the garbage collector. In particular, an attempt to clean o, will either preempt this method, or follow this method (in which case, until the return value is passed, o will not be cleaned). 
 	 */
-	static native Object strong(@PotentiallyUnreachable Object o);
+	static native <T> T strong(@PotentiallyUnreachable T o);
 	/**
 	 * Converts the given strongly reachable Object into a {@literal @}PotentiallyReachable object with soft semantics.
 	 * At any given time, the reference may either exist, or not exist. 
@@ -45,14 +43,14 @@ public abstract class Reference<T> {
 	 * @param o
 	 * @return
 	 */
-	static native @PotentiallyUnreachable Object soft(Object o);
+	static native <T> @PotentiallyUnreachable T soft(T o);
 	
 	
 	@SuppressWarnings("unchecked")
 	public T get() {
 		if(referent==null)
 			return null;//Null is valid to have return here
-		T value = (T)strong(referent);
+		T value = strong(referent);
 		if(value==null)
 			referent = null;//Referent has been reclaimed, kill it here
 		return value;
