@@ -1,6 +1,7 @@
 package java.lang;
 
-import jdk.internel.invoke.Stable;
+import github.lightningcreations.lccc.markers.RemoveConstructor;
+import jdk.internal.invoke.Stable;
 
 public final class Class<T> { 
 	private final String sourceName;
@@ -10,6 +11,8 @@ public final class Class<T> {
 	private Class<?> superclass;
 	@Stable
 	private Class<?>[] interfaces;
+
+	@RemoveConstructor
 	private Class() {
 		throw new NoSuchMethodError("Cannot construct an instance of class, VM support is required");
 	}

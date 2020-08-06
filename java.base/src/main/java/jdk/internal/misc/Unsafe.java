@@ -1,4 +1,4 @@
-package jdk.internel.misc;
+package jdk.internal.misc;
 
 import github.lightningcreations.lccc.markers.DeniedFeature;
 

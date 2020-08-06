@@ -1,6 +1,6 @@
 package java.lang;
 
-import jdk.internel.invoke.Stable;
+import jdk.internal.invoke.Stable;
 
 public final class String implements CharSequence {
 	@Stable
@@ -38,8 +38,13 @@ public final class String implements CharSequence {
 		return array[idx];
 	}
 
-	
-	public int length() {
+    @Override
+    public CharSequence subSequence(int i, int i1) {
+        return null;
+    }
+
+
+    public int length() {
 		// TODO Auto-generated method stub
 		return array.length;
 	}

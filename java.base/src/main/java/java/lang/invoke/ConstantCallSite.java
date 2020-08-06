@@ -1,6 +1,6 @@
 package java.lang.invoke;
 
-import jdk.internel.invoke.Stable;
+import jdk.internal.invoke.Stable;
 
 public class ConstantCallSite extends CallSite {
 
